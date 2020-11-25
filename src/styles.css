@@ -1,15 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900');
-
-
-$big: 'Montserrat', sans-serif;
   
 html {
-  display: grid;
+  
   min-height: 100%;
 }
 
 body {
-  display: grid;
+  
   background: teal;
 }
 
@@ -29,7 +25,7 @@ h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: .7em;
   letter-spacing: 5px;
-  margin-top: 25%;
+  margin-top: 10%;
 }
 .field {
   display: inline-block;
@@ -40,7 +36,7 @@ h1 {
 }
 
 .value {
-  font-family: $big;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 4em;
 }
 
@@ -48,7 +44,7 @@ h1 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   margin-top: 2em;
-  font-size: 1em;
+  font-size: 2em;
   text-transform: uppercase;
   letter-spacing: 5px;
   color: salmon;
@@ -61,7 +57,7 @@ h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: .7em;
   letter-spacing: 5px;
-  margin-top: 25%;
+  margin-top: 10%;
 }
 
 .days, .hours, .minutes, .seconds {
@@ -91,7 +87,7 @@ h1 {
 }
 
 .numbers {
-  font-family: $big;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 4em;
 }
 

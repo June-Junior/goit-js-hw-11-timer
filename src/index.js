@@ -61,8 +61,8 @@ function updateVisibleTimer({days, hours, mins, secs}) {
 
 // timer 2
 const year = new Date().getFullYear();
-const birthday = new Date(year, 10, 25).getTime();
-const nextBirthday = new Date(year + 1, 10, 25).getTime();
+const birthday = new Date(year, 5, 24).getTime();
+const nextBirthday = new Date(year + 1, 5, 24).getTime();
 const month = new Date().getMonth();
 const dateOfMonth = new Date().getDate();
 console.log(year);
@@ -81,31 +81,21 @@ let timer = setInterval(function() {
 
   // get the difference
   let difference;
-  if (month = 10 && dateOfMonth = 25) {
-    message.textContent = 'Happy Birthday !';   
-  } else if (month > 10 && dateOfMonth > 25) {
+  if(month > 5 && dateOfMonth > 24) {
     difference = nextBirthday - today;
+
   } else {
     difference = birthday - today;
+    message.textContent = 'Birthday Counter. Sooooon)';
   }
 
-  // if (subscription === 'free') {
-  //   cost = 0;
-  // } else if (subscription === 'pro') {
-  //   cost = 100;
-  // } else if (subscription === 'premium') {
-  //   cost = 500;
-  // } else {
-  //   console.log('Invalid subscription type');
-  // }
-
-  // math
+  // calc
   let days = Math.floor(difference / (1000 * 60 * 60 * 24));
   let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-  // display
+  // HTMLdisplay
   document.getElementById("timer").innerHTML =
     "<div class=\"days\"> \
   <div class=\"numbers\">" + days + "</div>days</div> \
