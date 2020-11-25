@@ -23,13 +23,13 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: .7em;
+  font-size: .6em;
   letter-spacing: 5px;
   margin-top: 10%;
 }
 .field {
   display: inline-block;
-  padding: 22px;
+  padding: 20px;
   width: 100px;
   border-radius: 5px;
   background: brown;
@@ -55,7 +55,7 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: .7em;
+  font-size: .6em;
   letter-spacing: 5px;
   margin-top: 10%;
 }
