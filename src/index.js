@@ -1,10 +1,6 @@
 import './index.html';
 import './styles.css';
 
-// const btn = document.querySelectorAll("button");
-
-// const body = document.querySelector("body");
-
 // new CountdownTimer({
 //   selector: '#timer-1',
 //   targetDate: new Date('Jul 17, 2019'),
@@ -19,7 +15,7 @@ const refs = {
 
 const CountdownTimer = {
   start() {
-    const deadLine = new Date().setFullYear(2021);
+    const deadLine = new Date().setTime(1609452000000);
     
     function showTimeCountdown() {
       const currentTime = Date.now();
@@ -57,32 +53,68 @@ function measureTimeValues(time) {
 }
 
 function updateVisibleTimer({days, hours, mins, secs}) {
-  refs.daysHtmlSelector.textContent = `${days}:`;
-  refs.hoursHtmlSelector.textContent = `${hours}:`;
+  refs.daysHtmlSelector.textContent = `${days}`;
+  refs.hoursHtmlSelector.textContent = `${hours}`;
   refs.minsHtmlSelector.textContent = `${mins}`;
   refs.secsHtmlSelector.textContent = `${secs}`;
 }
 
-/*
- * Оставшиеся дни: делим значение UTC на 1000 * 60 * 60 * 24, количество
- * миллисекунд в одном дне (миллисекунды * секунды * минуты * часы)
- */
+// timer 2
+const year = new Date().getFullYear();
+const birthday = new Date(year, 10, 25).getTime();
+const nextBirthday = new Date(year + 1, 10, 25).getTime();
+const month = new Date().getMonth();
+const dateOfMonth = new Date().getDate();
+console.log(year);
+console.log(birthday);
+console.log(nextBirthday);
+console.log(month);
+console.log(dateOfMonth);
 
+let message = document.querySelector("h1");
 
-/*
- * Оставшиеся часы: получаем остаток от предыдущего расчета с помощью оператора
- * остатка % и делим его на количество миллисекунд в одном часе
- * (1000 * 60 * 60 = миллисекунды * минуты * секунды)
- */
+// countdown
+let timer = setInterval(function() {
 
+  // get today's date
+  const today = new Date().getTime();
 
-/*
- * Оставшиеся минуты: получаем оставшиеся минуты и делим их на количество
- * миллисекунд в одной минуте (1000 * 60 = миллисекунды * секунды)
- */
+  // get the difference
+  let difference;
+  if (month = 10 && dateOfMonth = 25) {
+    message.textContent = 'Happy Birthday !';   
+  } else if (month > 10 && dateOfMonth > 25) {
+    difference = nextBirthday - today;
+  } else {
+    difference = birthday - today;
+  }
 
+  // if (subscription === 'free') {
+  //   cost = 0;
+  // } else if (subscription === 'pro') {
+  //   cost = 100;
+  // } else if (subscription === 'premium') {
+  //   cost = 500;
+  // } else {
+  //   console.log('Invalid subscription type');
+  // }
 
-/*
- * Оставшиеся секунды: получаем оставшиеся секунды и делим их на количество
- * миллисекунд в одной секунде (1000)
- */
+  // math
+  let days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+  // display
+  document.getElementById("timer").innerHTML =
+    "<div class=\"days\"> \
+  <div class=\"numbers\">" + days + "</div>days</div> \
+<div class=\"hours\"> \
+  <div class=\"numbers\">" + hours + "</div>hours</div> \
+<div class=\"minutes\"> \
+  <div class=\"numbers\">" + minutes + "</div>minutes</div> \
+<div class=\"seconds\"> \
+  <div class=\"numbers\">" + seconds + "</div>seconds</div> \
+</div>";
+
+}, 1000);
