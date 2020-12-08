@@ -1,21 +1,14 @@
 import './index.html';
 import './styles.css';
 
-// new CountdownTimer({
-//   selector: '#timer-1',
-//   targetDate: new Date('Jul 17, 2019'),
-// });
-const refs = {
-  daysHtmlSelector: document.querySelector('span[data-value="days"]'),
-  hoursHtmlSelector: document.querySelector('span[data-value="hours"]'),
-  minsHtmlSelector: document.querySelector('span[data-value="mins"]'),
-  secsHtmlSelector: document.querySelector('span[data-value="secs"]'),
 
-  };
-
-const CountdownTimer = {
+class CountdownTimer {
+  constructor() {
+    this.selector = null;
+    this.targetDate = null;
+  }
   start() {
-    const deadLine = new Date(2021, 0, 1, 0, 0, 0, 0);
+    const deadLine = this.targetDate;
     
     function showTimeCountdown() {
       const currentTime = Date.now();
@@ -34,10 +27,22 @@ const CountdownTimer = {
       
     }
     setInterval(showTimeCountdown, 1000);
-  },
-};
- 
-CountdownTimer.start();
+  }
+}
+const refs = {
+  daysHtmlSelector: document.querySelector('span[data-value="days"]'),
+  hoursHtmlSelector: document.querySelector('span[data-value="hours"]'),
+  minsHtmlSelector: document.querySelector('span[data-value="mins"]'),
+  secsHtmlSelector: document.querySelector('span[data-value="secs"]'),
+
+  };
+
+const timerFirst = new CountdownTimer({
+  selector: '#timer-1',
+  targetDate: new Date(2021, 0, 1, 0, 0, 0, 0),
+});
+timerFirst.start();
+
 
 function formatNumber(value) {
   return String(value).padStart(2, '0');
@@ -59,7 +64,11 @@ function updateVisibleTimer({days, hours, mins, secs}) {
   refs.secsHtmlSelector.textContent = `${secs}`;
 }
 
-// timer 2
+
+
+
+
+//__________________________________ timer 2 _______________________________
 const year = new Date().getFullYear();
 const birthday = new Date(year, 5, 24).getTime();
 const nextBirthday = new Date(year + 1, 5, 24).getTime();
