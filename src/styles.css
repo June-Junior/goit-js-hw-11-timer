@@ -5,8 +5,11 @@ html {
 }
 
 body {
-  
   background: teal;
+  background-image: url(https://media0.giphy.com/media/3oz8xTtOPAo6LAbwcg/source.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 h1 {

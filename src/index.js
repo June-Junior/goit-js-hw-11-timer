@@ -15,7 +15,7 @@ const refs = {
 
 const CountdownTimer = {
   start() {
-    const deadLine = new Date().setTime(1609452000000);
+    const deadLine = new Date(2021, 0, 1, 0, 0, 0, 0);
     
     function showTimeCountdown() {
       const currentTime = Date.now();
@@ -74,19 +74,19 @@ console.log(dateOfMonth);
 let message = document.querySelector("h1");
 
 // countdown
-let timer = setInterval(function() {
+const timer = setInterval(function() {
 
   // get today's date
   const today = new Date().getTime();
 
   // get the difference
   let difference;
-  if(month > 5 && dateOfMonth > 24) {
-    difference = nextBirthday - today;
+  if(month < 5 && dateOfMonth < 24) {
+    difference = birthday - today;
 
   } else {
-    difference = birthday - today;
-    message.textContent = 'Birthday Counter. Sooooon)';
+    difference = nextBirthday - today;
+    message.textContent = 'Maybe Next Time';
   }
 
   // calc
