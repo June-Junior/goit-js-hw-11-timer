@@ -3,9 +3,9 @@ import './styles.css';
 
 
 class CountdownTimer {
-  constructor() {
-    this.selector = null;
-    this.targetDate = null;
+  constructor({selector, targetDate}) {
+    this.selector = selector;
+    this.targetDate = targetDate;
   }
   start() {
     const deadLine = this.targetDate;
@@ -26,6 +26,7 @@ class CountdownTimer {
       console.log(`${days}:${hours}:${mins}:${secs}`);
       
     }
+    showTimeCountdown();
     setInterval(showTimeCountdown, 1000);
   }
 }
@@ -83,7 +84,7 @@ console.log(dateOfMonth);
 let message = document.querySelector("h1");
 
 // countdown
-const timer = setInterval(function() {
+const initializeTimer = function() {
 
   // get today's date
   const today = new Date().getTime();
@@ -116,4 +117,6 @@ const timer = setInterval(function() {
   <div class=\"numbers\">" + seconds + "</div>seconds</div> \
 </div>";
 
-}, 1000);
+}
+initializeTimer();
+setInterval(initializeTimer, 1000);
